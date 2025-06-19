@@ -1,0 +1,37 @@
+print("Welcome to the Currency Converter!")
+print("Supported currencies: USD, INR, EUR")
+
+# Take user input
+from_currency = input("Convert from (USD/INR/EUR): ").upper()
+to_currency = input("Convert to (USD/INR/EUR): ").upper()
+amount = float(input("Enter the amount to convert: "))
+
+# Conversion using conditions
+if from_currency == "USD" and to_currency == "INR":
+    converted = amount * 83.10
+    print(f"{amount} USD = {converted:.2f} INR")
+elif from_currency == "INR" and to_currency == "USD":
+    converted = amount / 83.10
+    print(f"{amount} INR = {converted:.2f} USD")
+
+elif from_currency == "USD" and to_currency == "EUR":
+    converted = amount * 0.92
+    print(f"{amount} USD = {converted:.2f} EUR")
+elif from_currency == "EUR" and to_currency == "USD":
+    converted = amount / 0.92
+    print(f"{amount} EUR = {converted:.2f} USD")
+
+elif from_currency == "INR" and to_currency == "EUR":
+    usd = amount / 83.10
+    converted = usd * 0.92
+    print(f"{amount} INR = {converted:.2f} EUR")
+elif from_currency == "EUR" and to_currency == "INR":
+    usd = amount / 0.92
+    converted = usd * 83.10
+    print(f"{amount} EUR = {converted:.2f} INR")
+
+elif from_currency == to_currency:
+    print("From and To currencies are the same. Amount is unchanged:", amount)
+
+else:
+    print("Currency not supported or invalid input.")
